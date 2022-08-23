@@ -4,15 +4,4 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddVisitActivity">
-
-    <Button
-        android:id="@+id/appointmentSubmit"
-        android:layout_width="170dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="40dp"
-        android:text="Submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="212dp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    tools:context=".AddVisitActivity"/>

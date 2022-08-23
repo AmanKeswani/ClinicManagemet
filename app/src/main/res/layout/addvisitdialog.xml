@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/addVisitName"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/addVisitPlace"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:hint="Place"
+        app:layout_constraintEnd_toEndOf="@+id/addVisitName"
+        app:layout_constraintStart_toStartOf="@+id/addVisitName"
+        app:layout_constraintTop_toBottomOf="@+id/addVisitName" />
+
+    <EditText
+        android:id="@+id/addVisitDate"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:hint="Date"
+        app:layout_constraintEnd_toEndOf="@+id/addVisitPlace"
+        app:layout_constraintStart_toStartOf="@+id/addVisitPlace"
+        app:layout_constraintTop_toBottomOf="@+id/addVisitPlace" />
+
+    <EditText
+        android:id="@+id/addVisitToPay"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:hint="To Pay"
+        app:layout_constraintEnd_toEndOf="@+id/addVisitDate"
+        app:layout_constraintStart_toStartOf="@+id/addVisitDate"
+        app:layout_constraintTop_toBottomOf="@+id/addVisitDate" />
+
+    <EditText
+        android:id="@+id/addVisitPaid"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:hint="Paid"
+        app:layout_constraintEnd_toEndOf="@+id/addVisitToPay"
+        app:layout_constraintStart_toStartOf="@+id/addVisitToPay"
+        app:layout_constraintTop_toBottomOf="@+id/addVisitToPay" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

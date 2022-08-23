@@ -12,7 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.doctorrewrite.Classes.AddVisitDialog;
+import com.example.doctorrewrite.Classes.DBHandler;
+import com.example.doctorrewrite.Classes.Visit;
+
+public class MainActivity extends AppCompatActivity implements AddVisitDialog.DialogListener {
 
     private Button addpatient;
     private Button getpatient;
@@ -69,21 +73,11 @@ public class MainActivity extends AppCompatActivity {
         addvisit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
-                dialog.setTitle("Add Visit");
+                AddVisitDialog addVisitDialog = new AddVisitDialog();
+                addVisitDialog.show(getSupportFragmentManager(), "Add Visit");
 
-                final EditText nameinput = new EditText(MainActivity.this);
-                nameinput.setInputType(InputType.TYPE_CLASS_TEXT);
-                dialog.setView(nameinput);
 
-                dialog.setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                            String text = nameinput.getText().toString();
-                        Toast.makeText(MainActivity.this, text, Toast.LENGTH_SHORT).show();
-                    }
-                });
-                dialog.show();
+
             }
         });
         getvisits.setOnClickListener(new View.OnClickListener(){
@@ -107,5 +101,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    @Override
+    public void pass_visit(Visit v) {
+        DBHandler db = new DBHandler(this);
+        db.addVisit(v);
+
+        Toast.makeText(this, "Added Visit", Toast.LENGTH_SHORT).show();
     }
 }
