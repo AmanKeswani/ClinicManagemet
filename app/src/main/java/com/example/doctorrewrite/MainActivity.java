@@ -1,11 +1,16 @@
 package com.example.doctorrewrite;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,8 +69,21 @@ public class MainActivity extends AppCompatActivity {
         addvisit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, AddVisitActivity.class);
-                startActivity(i);
+                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+                dialog.setTitle("Add Visit");
+
+                final EditText nameinput = new EditText(MainActivity.this);
+                nameinput.setInputType(InputType.TYPE_CLASS_TEXT);
+                dialog.setView(nameinput);
+
+                dialog.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                            String text = nameinput.getText().toString();
+                        Toast.makeText(MainActivity.this, text, Toast.LENGTH_SHORT).show();
+                    }
+                });
+                dialog.show();
             }
         });
         getvisits.setOnClickListener(new View.OnClickListener(){
