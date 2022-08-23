@@ -1,0 +1,14 @@
+get patient details
+ - get patient number via dialog
+ - make recyclerview, use from list appointments
+ - make it clickable
+ - detail of every appointment universal
+
+
+list visits
+ - make recyclerview
+ - make visit clickable
+
+edit patient 
+
+delete patient
