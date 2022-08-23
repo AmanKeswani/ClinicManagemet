@@ -39,6 +39,15 @@ public class DBHandler extends SQLiteOpenHelper {
                 "TO_PAY INTEGER ," +
                 "PAID INTEGER)";
         db.execSQL(create_appointments);
+
+        String create_visit = "CREATE TABLE IF NOT EXISTS visits (" +
+                "ID INTEGER PRIMARY KEY, " +
+                "NAME TEXT, " +
+                "DATE TEXT, " +
+                "PLACE TEXT, " +
+                "TO_PAY INTEGER, " +
+                "PAID INTEGER ) ";
+        db.execSQL(create_visit);
     }
 
     public void addPatient(Patient p){
@@ -142,6 +151,40 @@ public class DBHandler extends SQLiteOpenHelper {
             }while(c.moveToNext());
         }
         return appointmentList;
+    }
+
+    public void addVisit(Visit a){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues v = new ContentValues();
+
+        v.put("NAME", a.getName());
+        v.put("DATE", a.getDate());
+        v.put("PLACE", a.getPlace());
+        v.put("TO_PAY", a.getTo_pay());
+        v.put("PAID", a.getPaid());
+
+        db.insert("visits", null, v);
+    }
+
+    public List<Visit> getAllVisits(){
+        List<Visit> visitList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.rawQuery("SELECT * FROM visits", null);
+
+        if(c.moveToFirst()){
+            do{
+                Visit a = new Visit();
+                a.setId(Integer.parseInt(c.getString(0)));
+                a.setName(c.getString(1));
+                a.setDate(c.getString(2));
+                a.setPlace(c.getString(3));
+                a.setTo_pay(Integer.parseInt(c.getString(4)));
+                a.setPaid(Integer.parseInt(c.getString(5)));
+                visitList.add(a);
+            }while(c.moveToNext());
+        }
+        return visitList;
     }
 
 
