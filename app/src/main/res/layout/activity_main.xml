@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/addNewPatient"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:height="80dp"
+        android:text="Add New Patient"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addAppointment"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:text="Add Appointment"
+        app:layout_constraintStart_toStartOf="@+id/addNewPatient"
+        app:layout_constraintTop_toBottomOf="@+id/addNewPatient" />
+
+    <Button
+        android:id="@+id/addVisit"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:height="80dp"
+        android:text="Add Visit"
+        app:layout_constraintStart_toStartOf="@+id/addAppointment"
+        app:layout_constraintTop_toBottomOf="@+id/addAppointment" />
+
+    <Button
+        android:id="@+id/GetPatient"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        android:height="80dp"
+        android:text="Get Details of a Patient"
+        app:layout_constraintStart_toEndOf="@+id/addNewPatient"
+        app:layout_constraintTop_toTopOf="@+id/addNewPatient" />
+
+    <Button
+        android:id="@+id/getAppointments"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:height="80dp"
+        android:text="Get Appointments"
+        app:layout_constraintStart_toStartOf="@+id/GetPatient"
+        app:layout_constraintTop_toTopOf="@+id/addAppointment" />
+
+    <Button
+        android:id="@+id/getVisits"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:text="Get All Visits"
+        app:layout_constraintStart_toStartOf="@+id/getAppointments"
+        app:layout_constraintTop_toTopOf="@+id/addVisit" />
+
+    <Button
+        android:id="@+id/editPatient"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:text="Edit Patient"
+        app:layout_constraintStart_toStartOf="@+id/addVisit"
+        app:layout_constraintTop_toBottomOf="@+id/addVisit" />
+
+    <Button
+        android:id="@+id/deletePatient"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:text="Delete Patient"
+        app:layout_constraintStart_toStartOf="@+id/getVisits"
+        app:layout_constraintTop_toTopOf="@+id/editPatient" />
+</androidx.constraintlayout.widget.ConstraintLayout>

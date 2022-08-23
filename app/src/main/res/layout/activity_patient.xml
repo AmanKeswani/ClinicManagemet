@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PatientActivity">
+
+    <EditText
+        android:id="@+id/appointmentName"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Name"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/appointmenttopay"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:text="Date"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/patientDiagnosis"
+        app:layout_constraintTop_toBottomOf="@+id/patientDiagnosis" />
+
+    <EditText
+        android:id="@+id/appointmentProcedure"
+        android:layout_width="170dp"
+        android:layout_height="125dp"
+        android:text="Procedure"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/patientPastHistory"
+        app:layout_constraintTop_toTopOf="@+id/patientDiagnosis" />
+
+    <EditText
+        android:id="@+id/patientDiagnosis"
+        android:layout_width="170dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="15dp"
+        android:text="Diagnosis"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/patientComplains"
+        app:layout_constraintTop_toBottomOf="@+id/patientComplains" />
+
+    <EditText
+        android:id="@+id/patientPastHistory"
+        android:layout_width="170dp"
+        android:layout_height="125dp"
+        android:text="Past History"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/patientMedicalHistory"
+        app:layout_constraintTop_toTopOf="@+id/patientComplains" />
+
+    <EditText
+        android:id="@+id/patientComplains"
+        android:layout_width="170dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="15dp"
+        android:text="Complains"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/patientHistory"
+        app:layout_constraintTop_toBottomOf="@+id/patientHistory" />
+
+    <EditText
+        android:id="@+id/patientHistory"
+        android:layout_width="170dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="15dp"
+        android:text="History"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/appointmentName"
+        app:layout_constraintTop_toBottomOf="@+id/appointmentName" />
+
+    <EditText
+        android:id="@+id/patientMedicalHistory"
+        android:layout_width="170dp"
+        android:layout_height="125dp"
+        android:text="Medical History"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/appointmentNumber"
+        app:layout_constraintTop_toTopOf="@+id/patientHistory" />
+
+    <EditText
+        android:id="@+id/appointmentNumber"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:text="Number"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/appointmentName"
+        app:layout_constraintTop_toTopOf="@+id/appointmentName" />
+
+    <Button
+        android:id="@+id/appointmentSubmit"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="40dp"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/appointmenttopay" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
