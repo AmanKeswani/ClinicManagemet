@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/listAppPlace"
+            android:id="@+id/listAppNumber"
             android:layout_width="160dp"
             android:layout_height="35dp"
             android:text="name"
@@ -57,7 +57,7 @@
             android:layout_marginStart="236dp"
             android:text="name"
             android:textSize="28sp"
-            app:layout_constraintBottom_toBottomOf="@+id/listAppPlace"
+            app:layout_constraintBottom_toBottomOf="@+id/listAppNumber"
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

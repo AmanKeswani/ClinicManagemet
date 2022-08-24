@@ -64,16 +64,17 @@ public class AppointmentRecyclerViewAdapter extends RecyclerView.Adapter<Appoint
             super(itemView);
             itemView.setOnClickListener(this);
 
-            id = itemView.findViewById(R.id.listVisitID);
-            name = itemView.findViewById(R.id.listVisitName);
-            number = itemView.findViewById(R.id.listVisitPlace);
-            date = itemView.findViewById(R.id.listVisitDate);
-            amount = itemView.findViewById(R.id.listVisitAmount);
+            id = itemView.findViewById(R.id.listAppID);
+            name = itemView.findViewById(R.id.listAppName);
+            number = itemView.findViewById(R.id.listAppNumber);
+            date = itemView.findViewById(R.id.listAppDate);
+            amount = itemView.findViewById(R.id.listAppAmount);
 
         }
 
         @Override
         public void onClick(View view) {
+            Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show();
 
         }
     }
