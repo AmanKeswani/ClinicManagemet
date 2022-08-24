@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="100dp">
 
@@ -23,8 +22,8 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/listAppNumber"
-            android:layout_width="150dp"
+            android:id="@+id/listAppPlace"
+            android:layout_width="160dp"
             android:layout_height="35dp"
             android:text="name"
             android:textSize="28sp"
@@ -33,7 +32,7 @@
 
         <TextView
             android:id="@+id/listAppName"
-            android:layout_width="150dp"
+            android:layout_width="160dp"
             android:layout_height="35dp"
             android:layout_marginStart="15dp"
             android:text="name"
@@ -43,7 +42,7 @@
 
         <TextView
             android:id="@+id/listAppDate"
-            android:layout_width="150dp"
+            android:layout_width="160dp"
             android:layout_height="35dp"
             android:layout_marginStart="236dp"
             android:text="name"
@@ -53,12 +52,13 @@
 
         <TextView
             android:id="@+id/listAppAmount"
-            android:layout_width="150dp"
+            android:layout_width="160dp"
             android:layout_height="35dp"
             android:layout_marginStart="236dp"
             android:text="name"
             android:textSize="28sp"
-            app:layout_constraintBottom_toBottomOf="@+id/listAppNumber"
+            app:layout_constraintBottom_toBottomOf="@+id/listAppPlace"
             app:layout_constraintStart_toStartOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

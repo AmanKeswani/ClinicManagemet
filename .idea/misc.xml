@@ -6,10 +6,12 @@
         <entry key="..\:/Users/amans/OneDrive/Desktop/DoctorRewrite/app/src/main/res/layout/activity_add_appointment.xml" value="0.3625" />
         <entry key="..\:/Users/amans/OneDrive/Desktop/DoctorRewrite/app/src/main/res/layout/activity_add_visit.xml" value="0.3625" />
         <entry key="..\:/Users/amans/OneDrive/Desktop/DoctorRewrite/app/src/main/res/layout/activity_list_appointment.xml" value="0.3625" />
+        <entry key="..\:/Users/amans/OneDrive/Desktop/DoctorRewrite/app/src/main/res/layout/activity_list_visit.xml" value="0.3625" />
         <entry key="..\:/Users/amans/OneDrive/Desktop/DoctorRewrite/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Users/amans/OneDrive/Desktop/DoctorRewrite/app/src/main/res/layout/activity_patient.xml" value="0.3625" />
         <entry key="..\:/Users/amans/OneDrive/Desktop/DoctorRewrite/app/src/main/res/layout/addvisitdialog.xml" value="0.3625" />
         <entry key="..\:/Users/amans/OneDrive/Desktop/DoctorRewrite/app/src/main/res/layout/appointmentcard.xml" value="0.5" />
+        <entry key="..\:/Users/amans/OneDrive/Desktop/DoctorRewrite/app/src/main/res/layout/visitcard.xml" value="0.67" />
       </map>
     </option>
   </component>

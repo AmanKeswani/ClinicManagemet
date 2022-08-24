@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/listVisitID"
+            android:layout_width="41dp"
+            android:layout_height="78dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="ID"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/listVisitPlace"
+            android:layout_width="160dp"
+            android:layout_height="35dp"
+            android:text="name"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="@+id/listVisitID"
+            app:layout_constraintStart_toStartOf="@+id/listVisitName" />
+
+        <TextView
+            android:id="@+id/listVisitName"
+            android:layout_width="160dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="15dp"
+            android:text="name"
+            android:textSize="28sp"
+            app:layout_constraintStart_toEndOf="@+id/listVisitID"
+            app:layout_constraintTop_toTopOf="@+id/listVisitID" />
+
+        <TextView
+            android:id="@+id/listVisitDate"
+            android:layout_width="160dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="236dp"
+            android:text="name"
+            android:textSize="28sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/listVisitName" />
+
+        <TextView
+            android:id="@+id/listVisitAmount"
+            android:layout_width="160dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="236dp"
+            android:text="name"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="@+id/listVisitPlace"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

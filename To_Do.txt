@@ -5,7 +5,6 @@ get patient details
  - detail of every appointment universal
 
 list visits
- - make recyclerview
  - make visit clickable
 
 edit patient 

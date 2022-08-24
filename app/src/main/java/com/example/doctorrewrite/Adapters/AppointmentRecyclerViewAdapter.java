@@ -29,7 +29,6 @@ public class AppointmentRecyclerViewAdapter extends RecyclerView.Adapter<Appoint
     public AppointmentRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.appointmentcard, parent, false);
-        Toast.makeText(context, "reached here", Toast.LENGTH_SHORT).show();
         return new ViewHolder(view);
 
 
@@ -38,20 +37,12 @@ public class AppointmentRecyclerViewAdapter extends RecyclerView.Adapter<Appoint
     @Override
     public void onBindViewHolder(@NonNull AppointmentRecyclerViewAdapter.ViewHolder holder, int position) {
 
-        Toast.makeText(context, "reached here 2", Toast.LENGTH_SHORT).show();
-
         Appointment a = appointmentList.get(position);
-        Toast.makeText(context, "reached here 3", Toast.LENGTH_SHORT).show();
         holder.id.setText("" + a.getId());
-        Toast.makeText(context, "reached here 4", Toast.LENGTH_SHORT).show();
         holder.name.setText(a.getName());
-        Toast.makeText(context, "reached here 5", Toast.LENGTH_SHORT).show();
         holder.number.setText(a.getNumber());
-        Toast.makeText(context, "reached here 6", Toast.LENGTH_SHORT).show();
         holder.date.setText(a.getDate());
-        Toast.makeText(context, "reached here 7", Toast.LENGTH_SHORT).show();
-        holder.amount.setText( "Amount" + (a.getTo_pay()-a.getPaid()));
-        Toast.makeText(context, "reached here 8", Toast.LENGTH_SHORT).show();
+        holder.amount.setText( "Amount:" + (a.getTo_pay()-a.getPaid()));
 
     }
 
@@ -73,11 +64,11 @@ public class AppointmentRecyclerViewAdapter extends RecyclerView.Adapter<Appoint
             super(itemView);
             itemView.setOnClickListener(this);
 
-            id = itemView.findViewById(R.id.listAppID);
-            name = itemView.findViewById(R.id.listAppName);
-            number = itemView.findViewById(R.id.listAppNumber);
-            date = itemView.findViewById(R.id.listAppDate);
-            amount = itemView.findViewById(R.id.listAppAmount);
+            id = itemView.findViewById(R.id.listVisitID);
+            name = itemView.findViewById(R.id.listVisitName);
+            number = itemView.findViewById(R.id.listVisitPlace);
+            date = itemView.findViewById(R.id.listVisitDate);
+            amount = itemView.findViewById(R.id.listVisitAmount);
 
         }
 
