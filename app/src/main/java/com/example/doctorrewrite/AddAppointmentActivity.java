@@ -36,11 +36,8 @@ public class AddAppointmentActivity extends AppCompatActivity {
                 a.setNumber(number.getText().toString());
                 a.setProcedure(procedure.getText().toString());
                 a.setTo_pay(Integer.parseInt(to_pay.getText().toString()));
-                Toast.makeText(AddAppointmentActivity.this, "reached here", Toast.LENGTH_SHORT).show();
                 a.setPaid(Integer.parseInt(paid.getText().toString()));
                 a.setDate(date.getText().toString());
-                Toast.makeText(AddAppointmentActivity.this, "reached here", Toast.LENGTH_SHORT).show();
-
                 db.addAppointment(a);
                 Toast.makeText(AddAppointmentActivity.this, "Added Appointment.", Toast.LENGTH_SHORT).show();
             }
