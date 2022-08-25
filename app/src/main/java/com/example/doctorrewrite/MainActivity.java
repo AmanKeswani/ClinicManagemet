@@ -14,7 +14,10 @@ import android.widget.Toast;
 
 import com.example.doctorrewrite.Classes.AddVisitDialog;
 import com.example.doctorrewrite.Classes.DBHandler;
+import com.example.doctorrewrite.Classes.Patient;
 import com.example.doctorrewrite.Classes.Visit;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements AddVisitDialog.DialogListener {
 
@@ -45,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements AddVisitDialog.Di
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, PatientActivity.class);
+                Patient ac = new Patient();
+                ac.setId(-1);
+                i.putExtra("PATIENT", ac);
                 startActivity(i);
             }
         });
@@ -90,8 +96,39 @@ public class MainActivity extends AppCompatActivity implements AddVisitDialog.Di
         editpatient.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, PatientActivity.class);
-                startActivity(i);
+                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+                dialog.setTitle("Enter Name of Patient.");
+
+                DBHandler db = new DBHandler(MainActivity.this);
+                List<Patient> patientList = db.getAllPatients();
+
+                Intent x = new Intent(MainActivity.this, PatientActivity.class);
+
+                final EditText nameinput = new EditText(MainActivity.this);
+                nameinput.setInputType(InputType.TYPE_CLASS_TEXT);
+                dialog.setView(nameinput);
+
+                int z=0;
+
+                dialog.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String name = nameinput.getText().toString();
+                        String name1 = "";
+                        for(Patient pt: patientList){
+                            name1 = pt.getName();
+                            if(name1.equalsIgnoreCase(name)){
+                                x.putExtra("PATIENT", pt);
+                                i = 1;
+                                startActivity(x);
+                            }
+                        }
+                        if(z==0) Toast.makeText(MainActivity.this, "No patient with the given name was found", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+                dialog.show();
+
             }
         });
         deletepatient.setOnClickListener(new View.OnClickListener(){

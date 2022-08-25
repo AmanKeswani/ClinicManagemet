@@ -94,6 +94,26 @@ public class DBHandler extends SQLiteOpenHelper {
         return patient_list;
     }
 
+    public void updatePatient(Patient p){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues v = new ContentValues();
+
+        v.put("NAME", p.getName());
+        v.put("NUMBER", p.getNumber());
+        v.put("HISTORY", p.getHistory());
+        v.put("MEDICAL_HISTORY", p.getMedical_history());
+        v.put("COMPLAINS", p.getComplains());
+        v.put("PAST_HISTORY", p.getPast_history());
+        v.put("DIAGNOSIS", p.getDiagnosis());
+        v.put("PROCEDURE", p.getProcedure());
+        v.put("DATE", p.getFirst_date());
+
+        db.update("patients", v, "NAME =? ",
+                new String[]{p.getName()});
+
+    }
+
     public void addAppointment(Appointment a){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues v = new ContentValues();
