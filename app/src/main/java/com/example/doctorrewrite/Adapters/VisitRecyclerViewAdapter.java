@@ -8,8 +8,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.doctorrewrite.Classes.Appointment;
 import com.example.doctorrewrite.Classes.Visit;
 import com.example.doctorrewrite.R;
 
@@ -74,7 +76,20 @@ public class VisitRecyclerViewAdapter extends RecyclerView.Adapter<VisitRecycler
 
         @Override
         public void onClick(View view) {
-            Toast.makeText(context, "clicked 2", Toast.LENGTH_SHORT).show();
+            int position = this.getAbsoluteAdapterPosition();
+            Visit a = appointmentList.get(position);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setMessage("ID: " + a.getId() + "\n" +
+                            "Name: " + a.getName() + "\n" +
+                            "Date: " + a.getDate() + "\n" +
+                            "Amount to pay: " + a.getTo_pay() + "\n" +
+                            "Amount Paid: " + a.getPaid() + "\n" +
+                            "Amount Remaining: " + (a.getTo_pay()-a.getPaid()) + ".")
+                    .setPositiveButton("ok",null).setCancelable(false);
+
+            AlertDialog alert = builder.create();
+            alert.show();
 
         }
     }

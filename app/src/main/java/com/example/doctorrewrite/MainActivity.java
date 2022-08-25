@@ -59,7 +59,41 @@ public class MainActivity extends AppCompatActivity implements AddVisitDialog.Di
         getpatient.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Confirm with doctor. 5 mins work" , Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+                dialog.setTitle("Enter Name of Patient.");
+
+                DBHandler db = new DBHandler(MainActivity.this);
+                List<Patient> patientList = db.getAllPatients();
+
+                Intent x = new Intent(MainActivity.this, PatientDetailActivity.class);
+
+                final EditText nameinput = new EditText(MainActivity.this);
+                nameinput.setInputType(InputType.TYPE_CLASS_TEXT);
+                dialog.setView(nameinput);
+
+                dialog.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String name = nameinput.getText().toString();
+                        String name1 = "";
+                        for(Patient pt: patientList){
+                            name1 = pt.getName();
+                            if(name1.equalsIgnoreCase(name)){
+                                x.putExtra("PATIENT", pt);
+                                z = 1;
+                                startActivity(x);
+                            }
+                        }
+                        Toast.makeText(MainActivity.this, "" + z, Toast.LENGTH_SHORT).show();
+                        if(z!=1) {
+                            Toast.makeText(MainActivity.this, "No patient with the given name was found. Try searching here.", Toast.LENGTH_SHORT).show();
+                            Intent lpa = new Intent(MainActivity.this, ListPatientActivity.class);
+                            startActivity(lpa);
+                        }
+
+                    }
+                });
+                dialog.show();
             }
         });
         addappointment.setOnClickListener(new View.OnClickListener(){

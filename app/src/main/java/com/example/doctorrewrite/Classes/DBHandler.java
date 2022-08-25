@@ -140,8 +140,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 a.setId(Integer.parseInt(c.getString(0)));
                 a.setName(c.getString(1));
                 a.setNumber(c.getString(2));
-                a.setDate(c.getString(3));
-                a.setProcedure(c.getString(4));
+                a.setProcedure(c.getString(3));
+                a.setDate(c.getString(4));
                 a.setTo_pay(Integer.parseInt(c.getString(5)));
                 a.setPaid(Integer.parseInt(c.getString(6)));
                 appointmentList.add(a);

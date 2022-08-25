@@ -74,7 +74,7 @@ public class PatientActivity extends AppCompatActivity {
                 if (ab.getId() == -1) {
                     db.addPatient(pt);
                     Toast.makeText(PatientActivity.this, "Added Patient Successfully.", Toast.LENGTH_SHORT).show();
-                } else {
+                } else if(ab.getId() >= 0){
                     db.updatePatient(pt);
                     Toast.makeText(PatientActivity.this, "Updated Patient.", Toast.LENGTH_SHORT).show();
                 }
