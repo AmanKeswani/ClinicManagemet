@@ -43,6 +43,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:text="To Pay"
+        android:inputType="number"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/appointmentProcedure"
         app:layout_constraintTop_toBottomOf="@+id/appointmentProcedure" />
@@ -63,6 +64,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="15dp"
         android:text="Number"
+        android:inputType="number"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/appointmentName"
         app:layout_constraintTop_toTopOf="@+id/appointmentName" />

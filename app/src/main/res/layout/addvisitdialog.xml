@@ -43,6 +43,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
         android:hint="To Pay"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="@+id/addVisitDate"
         app:layout_constraintStart_toStartOf="@+id/addVisitDate"
         app:layout_constraintTop_toBottomOf="@+id/addVisitDate" />
@@ -53,6 +54,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
         android:hint="Paid"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="@+id/addVisitToPay"
         app:layout_constraintStart_toStartOf="@+id/addVisitToPay"
         app:layout_constraintTop_toBottomOf="@+id/addVisitToPay" />

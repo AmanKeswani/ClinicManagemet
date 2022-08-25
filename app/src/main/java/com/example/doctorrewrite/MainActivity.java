@@ -81,10 +81,13 @@ public class MainActivity extends AppCompatActivity implements AddVisitDialog.Di
                             if(name1.equalsIgnoreCase(name)){
                                 x.putExtra("PATIENT", pt);
                                 z = 1;
-                                startActivity(x);
+
                             }
                         }
-                        Toast.makeText(MainActivity.this, "" + z, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(MainActivity.this, "" + z, Toast.LENGTH_SHORT).show();
+                        if(z==1){
+                            startActivity(x);
+                        }
                         if(z!=1) {
                             Toast.makeText(MainActivity.this, "No patient with the given name was found. Try searching here.", Toast.LENGTH_SHORT).show();
                             Intent lpa = new Intent(MainActivity.this, ListPatientActivity.class);

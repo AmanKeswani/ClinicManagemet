@@ -46,7 +46,6 @@ public class Patient implements Parcelable {
                    String diagnosis,
                    String procedure,
                    String first_date) {
-        this.id = id;
         this.name = name;
         this.number = number;
         this.history = history;

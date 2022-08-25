@@ -38,7 +38,7 @@ public class PatientDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 p.setId(-5);
-                Intent i = new Intent(PatientDetailActivity.this, PatientActivity.class);
+                Intent i = new Intent(PatientDetailActivity.this, normalText.class);
                 i.putExtra("PATIENT", p);
                 startActivity(i);
             }
