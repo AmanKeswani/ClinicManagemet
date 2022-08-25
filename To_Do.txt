@@ -1,8 +1,4 @@
 get patient details
- - get patient number via dialog
+ - get patient name via dialog
  - make recyclerview, use from list appointments
  - detail of every appointment universal
-
-edit patient 
-
-delete patient

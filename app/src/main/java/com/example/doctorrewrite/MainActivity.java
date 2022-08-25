@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements AddVisitDialog.Di
     private Button editpatient;
     private Button deletepatient;
 
+    public int z;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,8 +59,7 @@ public class MainActivity extends AppCompatActivity implements AddVisitDialog.Di
         getpatient.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, PatientActivity.class);
-                startActivity(i);
+                Toast.makeText(MainActivity.this, "Confirm with doctor. 5 mins work" , Toast.LENGTH_SHORT).show();
             }
         });
         addappointment.setOnClickListener(new View.OnClickListener(){
@@ -81,9 +81,6 @@ public class MainActivity extends AppCompatActivity implements AddVisitDialog.Di
             public void onClick(View view) {
                 AddVisitDialog addVisitDialog = new AddVisitDialog();
                 addVisitDialog.show(getSupportFragmentManager(), "Add Visit");
-
-
-
             }
         });
         getvisits.setOnClickListener(new View.OnClickListener(){
@@ -108,8 +105,6 @@ public class MainActivity extends AppCompatActivity implements AddVisitDialog.Di
                 nameinput.setInputType(InputType.TYPE_CLASS_TEXT);
                 dialog.setView(nameinput);
 
-                int z=0;
-
                 dialog.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -119,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements AddVisitDialog.Di
                             name1 = pt.getName();
                             if(name1.equalsIgnoreCase(name)){
                                 x.putExtra("PATIENT", pt);
-                                i = 1;
+                                z = 1;
                                 startActivity(x);
                             }
                         }
@@ -128,14 +123,39 @@ public class MainActivity extends AppCompatActivity implements AddVisitDialog.Di
                     }
                 });
                 dialog.show();
-
             }
         });
         deletepatient.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, PatientActivity.class);
-                startActivity(i);
+                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+                dialog.setTitle("Enter Name of Patient.");
+
+                DBHandler db = new DBHandler(MainActivity.this);
+                List<Patient> patientList = db.getAllPatients();
+
+                final EditText nameinput = new EditText(MainActivity.this);
+                nameinput.setInputType(InputType.TYPE_CLASS_TEXT);
+                dialog.setView(nameinput);
+
+                dialog.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String name = nameinput.getText().toString();
+                        String name1 = "";
+                        for(Patient pt: patientList){
+                            name1 = pt.getName();
+                            if(name1.equalsIgnoreCase(name)){
+                                z = 1;
+                                Toast.makeText(MainActivity.this, "Confirm with doctor.", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        if(z==0) Toast.makeText(MainActivity.this, "No patient with the given name was found", Toast.LENGTH_SHORT).show();
+                        z=0;
+                    }
+                });
+                dialog.show();
+
             }
         });
     }
@@ -144,7 +164,6 @@ public class MainActivity extends AppCompatActivity implements AddVisitDialog.Di
     public void pass_visit(Visit v) {
         DBHandler db = new DBHandler(this);
         db.addVisit(v);
-
         Toast.makeText(this, "Added Visit", Toast.LENGTH_SHORT).show();
     }
 }
