@@ -68,23 +68,29 @@ public class MainActivity extends AppCompatActivity implements AddVisitDialog.Di
                 Intent x = new Intent(MainActivity.this, PatientDetailActivity.class);
 
                 final EditText nameinput = new EditText(MainActivity.this);
-                nameinput.setInputType(InputType.TYPE_CLASS_TEXT);
+                nameinput.setInputType(InputType.TYPE_CLASS_NUMBER);
                 dialog.setView(nameinput);
+                dialog.setTitle("Enter number.");
 
                 dialog.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String name = nameinput.getText().toString();
+                        if(name.isEmpty()){
+                            Toast.makeText(MainActivity.this, "Empty Field", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
                         String name1 = "";
                         for(Patient pt: patientList){
-                            name1 = pt.getName();
-                            if(name1.equalsIgnoreCase(name)){
+                            name1 = pt.getNumber();
+                            if (name1.matches(".*[a-z].*")) {
+                                continue;
+                            }
+                            if(Long.parseLong(name1) == Long.parseLong(name)){
                                 x.putExtra("PATIENT", pt);
                                 z = 1;
-
                             }
                         }
-//                        Toast.makeText(MainActivity.this, "" + z, Toast.LENGTH_SHORT).show();
                         if(z==1){
                             startActivity(x);
                         }
@@ -102,8 +108,54 @@ public class MainActivity extends AppCompatActivity implements AddVisitDialog.Di
         addappointment.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, AddAppointmentActivity.class);
-                startActivity(i);
+                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+                dialog.setTitle("Enter Name of Patient.");
+
+                DBHandler db = new DBHandler(MainActivity.this);
+                List<Patient> patientList = db.getAllPatients();
+
+                Intent x = new Intent(MainActivity.this, AddAppointmentActivity.class);
+
+                final EditText nameinput = new EditText(MainActivity.this);
+                nameinput.setInputType(InputType.TYPE_CLASS_NUMBER);
+                dialog.setView(nameinput);
+                dialog.setTitle("Enter number.");
+
+                dialog.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String name = nameinput.getText().toString();
+                        if(name.isEmpty()){
+                            Toast.makeText(MainActivity.this, "Empty Field", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        String name1 = "";
+                        for(Patient pt: patientList){
+                            name1 = pt.getNumber();
+                            if (name1.matches(".*[a-z].*")) {
+                                continue;
+                            }
+                            if(Long.parseLong(name1) == Long.parseLong(name)){
+                                x.putExtra("PATIENT", pt);
+                                z = 1;
+                            }
+                        }
+                        if(z==1){
+                            startActivity(x);
+                        }
+                        if(z!=1) {
+                            Patient pt = new Patient();
+                            pt.setName("Name");
+                            pt.setNumber("Number");
+                            Toast.makeText(MainActivity.this, "No patient with the given name was found. Try searching here.", Toast.LENGTH_SHORT).show();
+                            Intent lpa = new Intent(MainActivity.this, AddAppointmentActivity.class);
+                            lpa.putExtra("PATIENT", pt);
+                            startActivity(lpa);
+                        }
+
+                    }
+                });
+                dialog.show();
             }
         });
         getappointments.setOnClickListener(new View.OnClickListener(){
@@ -139,23 +191,34 @@ public class MainActivity extends AppCompatActivity implements AddVisitDialog.Di
                 Intent x = new Intent(MainActivity.this, PatientActivity.class);
 
                 final EditText nameinput = new EditText(MainActivity.this);
-                nameinput.setInputType(InputType.TYPE_CLASS_TEXT);
+                nameinput.setInputType(InputType.TYPE_CLASS_NUMBER);
                 dialog.setView(nameinput);
+                dialog.setTitle("Enter patient number");
 
                 dialog.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String name = nameinput.getText().toString();
+                        if(name.isEmpty()){
+                            Toast.makeText(MainActivity.this, "Empty Field", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
                         String name1 = "";
                         for(Patient pt: patientList){
-                            name1 = pt.getName();
-                            if(name1.equalsIgnoreCase(name)){
+                            name1 = pt.getNumber();
+                            Toast.makeText(MainActivity.this, "" + name1, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "testing", Toast.LENGTH_SHORT).show();
+                            if (name1.matches(".*[a-z].*")) {
+                                continue;
+                            }
+                            if(Long.parseLong(name1) == Long.parseLong(name)){
                                 x.putExtra("PATIENT", pt);
                                 z = 1;
-                                startActivity(x);
+                                Toast.makeText(MainActivity.this, "condition2", Toast.LENGTH_SHORT).show();
                             }
                         }
-                        if(z==0) Toast.makeText(MainActivity.this, "No patient with the given name was found", Toast.LENGTH_SHORT).show();
+                        if(z==1) startActivity(x);
+                        if(z==0) Toast.makeText(MainActivity.this, "No patient with the given number was found", Toast.LENGTH_SHORT).show();
 
                     }
                 });

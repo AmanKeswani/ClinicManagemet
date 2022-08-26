@@ -2,6 +2,7 @@ package com.example.doctorrewrite;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.doctorrewrite.Classes.Appointment;
 import com.example.doctorrewrite.Classes.DBHandler;
+import com.example.doctorrewrite.Classes.Patient;
 
 public class AddAppointmentActivity extends AppCompatActivity {
 
@@ -17,6 +19,14 @@ public class AddAppointmentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_appointment);
+
+        Intent i = getIntent();
+        Patient p = i.getParcelableExtra("PATIENT");
+        Toast.makeText(this, "1" + p.getName(), Toast.LENGTH_SHORT).show();
+        TextView name = findViewById(R.id.appointmentName);
+        TextView number = findViewById(R.id.appointmentNumber);
+        name.setText(p.getName());
+        number.setText(p.getNumber());
 
         Button b = findViewById(R.id.appointmentSubmit);
         b.setOnClickListener(new View.OnClickListener() {

@@ -51,11 +51,10 @@ public class PatientDetailActivity extends AppCompatActivity {
         appointmentList = db.getAllAppointments();
 
         for(Appointment a: appointmentList){
-            if(a.getName().equalsIgnoreCase(p.getName())){
+            if(Long.parseLong(a.getNumber())==Long.parseLong(p.getNumber())){
                 appointmentArrayList.add(a);
             }
         }
-
         recyclerView = findViewById(R.id.patientDetailRecyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
