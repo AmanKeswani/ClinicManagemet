@@ -1,6 +1,7 @@
 package com.example.doctorrewrite;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,6 +40,8 @@ public class ListPatientActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.listPatientRecyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        recyclerView.addItemDecoration(dividerItemDecoration);
 
         recyclerViewAdapter = new PatientRecyclerViewAdapter(ListPatientActivity.this, appointmentArrayList);
         recyclerView.setAdapter(recyclerViewAdapter);
