@@ -91,10 +91,8 @@ public class MainActivity extends AppCompatActivity implements AddVisitDialog.Di
                                 z = 1;
                             }
                         }
-                        if(z==1){
-                            startActivity(x);
-                        }
-                        if(z!=1) {
+                        if(z==1)startActivity(x);
+                        else {
                             Toast.makeText(MainActivity.this, "No patient with the given name was found. Try searching here.", Toast.LENGTH_SHORT).show();
                             Intent lpa = new Intent(MainActivity.this, ListPatientActivity.class);
                             startActivity(lpa);
@@ -206,19 +204,17 @@ public class MainActivity extends AppCompatActivity implements AddVisitDialog.Di
                         String name1 = "";
                         for(Patient pt: patientList){
                             name1 = pt.getNumber();
-                            Toast.makeText(MainActivity.this, "" + name1, Toast.LENGTH_SHORT).show();
-                            Toast.makeText(MainActivity.this, "testing", Toast.LENGTH_SHORT).show();
                             if (name1.matches(".*[a-z].*")) {
+                                Toast.makeText(MainActivity.this, "" + name1, Toast.LENGTH_SHORT).show();
                                 continue;
                             }
                             if(Long.parseLong(name1) == Long.parseLong(name)){
                                 x.putExtra("PATIENT", pt);
                                 z = 1;
-                                Toast.makeText(MainActivity.this, "condition2", Toast.LENGTH_SHORT).show();
                             }
                         }
                         if(z==1) startActivity(x);
-                        if(z==0) Toast.makeText(MainActivity.this, "No patient with the given number was found", Toast.LENGTH_SHORT).show();
+                        else Toast.makeText(MainActivity.this, "No patient with the given number was found", Toast.LENGTH_SHORT).show();
 
                     }
                 });
